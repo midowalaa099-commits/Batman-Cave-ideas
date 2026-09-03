@@ -67,6 +67,9 @@ class IdeaController extends Controller
      */
     public function update(UpdateIdeaRequest $request, Idea $idea)
     {
+        Gate::authorize('update', $idea);
+
+        $idea->update($request->validated());
 
         return redirect('/ideas');
     }

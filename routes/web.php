@@ -22,6 +22,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/login', [SessionController::class, 'create']);
     Route::post('/login', [SessionController::class, 'store']);
+    Route::redirect('/', '/login');
 });
 // Route::get('/admin', function () {
 //     return ("this is admin only");
